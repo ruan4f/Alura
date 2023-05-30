@@ -1,11 +1,11 @@
-package br.com.alura.service.promocao;
+package br.com.alura.rh.service.promocao;
 
 import br.com.alura.rh.ValidacaoException;
 import br.com.alura.rh.model.Cargo;
 import br.com.alura.rh.model.Funcionario;
 
 public class PromocaoService {
-
+	
 	public void promover(Funcionario funcionario, boolean metaBatida) {
 		Cargo cargoAtual = funcionario.getCargo();
 		if (Cargo.GERENTE == cargoAtual) {
@@ -15,9 +15,9 @@ public class PromocaoService {
 		if (metaBatida) {
 			Cargo novoCargo = cargoAtual.getProximoCargo();
 			funcionario.promover(novoCargo);
-		}else {
+		} else {
 			throw new ValidacaoException("Funcionario nao bateu a meta!");
 		}
 	}
-	
+
 }
