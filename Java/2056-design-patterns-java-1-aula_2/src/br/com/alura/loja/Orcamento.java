@@ -1,4 +1,4 @@
-package br.com.alura.loja.orcamento;
+package br.com.alura.loja;
 
 import java.math.BigDecimal;
 
@@ -8,7 +8,6 @@ public class Orcamento {
 	private int quantidadeItens;
 
 	public Orcamento(BigDecimal valor, int quantidadeItens) {
-		super();
 		this.valor = valor;
 		this.quantidadeItens = quantidadeItens;
 	}
@@ -16,8 +15,9 @@ public class Orcamento {
 	public BigDecimal getValor() {
 		return valor;
 	}
-	
+
 	public int getQuantidadeItens() {
 		return quantidadeItens;
 	}
+
 }
