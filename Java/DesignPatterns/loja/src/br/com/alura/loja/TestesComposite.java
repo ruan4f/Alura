@@ -20,6 +20,13 @@ public class TestesComposite {
 
 		System.out.println(proxy.getValor());
 		System.out.println(proxy.getValor());
+		System.out.println(proxy.getValor());
+		System.out.println(proxy.getValor());
+		System.out.println(proxy.getValor());
+		System.out.println(proxy.getValor());
+		System.out.println(proxy.getValor());
+		System.out.println(proxy.getValor());
+		System.out.println(proxy.getValor());
 	}
 
 }
