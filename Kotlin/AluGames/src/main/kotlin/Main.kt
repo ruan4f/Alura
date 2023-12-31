@@ -1,9 +1,8 @@
-package org.example
+package alu.games
 
 import java.net.URI
 import java.net.http.HttpClient
 import java.net.http.HttpRequest
-import java.net.http.HttpResponse
 import java.net.http.HttpResponse.BodyHandlers
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -19,4 +18,7 @@ fun main() {
     val json = response.body()
 
     println(json)
+
+    val meuJogo = Jogo()
+
 }
