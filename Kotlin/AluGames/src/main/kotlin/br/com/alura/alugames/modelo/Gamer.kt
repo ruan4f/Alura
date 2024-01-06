@@ -1,52 +1,48 @@
 package br.com.alura.alugames.modelo
 
-import br.com.alura.alugames.utilitario.formatoComDuasCasasDecimais
-import java.time.LocalDate
 import java.util.Scanner
 import kotlin.random.Random
 
-data class Gamer(val nome:String, var email:String):Recomendavel{
+data class Gamer(var nome:String, var email:String): Recomendavel {
     var dataNascimento:String? = null
     var usuario:String? = null
         set(value) {
             field = value
-            if (idInterno.isNullOrBlank()) {
+            if(idInterno.isNullOrBlank()) {
                 criarIdInterno()
             }
         }
+    var id = 0
     var idInterno:String? = null
         private set
-
-    var plano:Plano = PlanoAvulso("BRONZE")
+    var plano: Plano = PlanoAvulso("BRONZE")
     val jogosBuscados = mutableListOf<Jogo?>()
     val jogosAlugados = mutableListOf<Aluguel>()
     private val listaNotas = mutableListOf<Int>()
     val jogosRecomendados = mutableListOf<Jogo>()
 
     override val media: Double
-        get() = listaNotas.average().formatoComDuasCasasDecimais()
+        get() = listaNotas.average()
 
     override fun recomendar(nota: Int) {
-        if (nota < 1 || nota > 10) {
-            println("Nota inválida. Insira uma nota entre 1 e 10")
-        } else {
-            listaNotas.add(nota)
-        }
+        listaNotas.add(nota)
     }
 
-    fun recomendarJogo(jogo: Jogo, nota: Int){
+    fun recomendarJogo(jogo: Jogo, nota: Int) {
         jogo.recomendar(nota)
         jogosRecomendados.add(jogo)
     }
 
-    constructor(nome: String, email: String, dataNascimento:String, usuario:String):this(nome, email) {
+    constructor(nome: String, email: String, dataNascimento:String, usuario:String, id: Int = 0):
+            this(nome, email) {
         this.dataNascimento = dataNascimento
         this.usuario = usuario
+        this.id = id
         criarIdInterno()
     }
 
     init {
-        if (nome.isBlank()){
+        if (nome.isNullOrBlank()) {
             throw IllegalArgumentException("Nome está em branco")
         }
         this.email = validarEmail()
@@ -59,7 +55,8 @@ data class Gamer(val nome:String, var email:String):Recomendavel{
                 "Data Nascimento: $dataNascimento\n" +
                 "Usuario: $usuario\n" +
                 "IdInterno: $idInterno\n" +
-                "Reputação: $media"
+                "Reputação: $media\n" +
+                "Id: $id"
     }
 
     fun criarIdInterno() {
@@ -110,6 +107,8 @@ data class Gamer(val nome:String, var email:String):Recomendavel{
             } else {
                 return Gamer (nome, email)
             }
+
         }
     }
+
 }

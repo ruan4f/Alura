@@ -77,7 +77,7 @@ fun main() {
     if (opcao.equals("s", true)) {
         println(gamer.jogosBuscados)
         println("\nInforme a posição do jogo que deseja excluir: ")
-        val posicao =leitura.nextInt()
+        val posicao = leitura.nextInt()
         gamer.jogosBuscados.removeAt(posicao)
     }
 
@@ -85,5 +85,4 @@ fun main() {
     println(gamer.jogosBuscados)
 
     println("Busca finalizada com sucesso.")
-
 }

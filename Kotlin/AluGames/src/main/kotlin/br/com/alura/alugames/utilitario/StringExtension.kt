@@ -6,8 +6,10 @@ import java.time.format.DateTimeFormatter
 
 fun String.transformarEmIdade(): Int {
     val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+    var idade = 0
     val dataNascimento = LocalDate.parse(this, formatter)
     val hoje = LocalDate.now()
+    idade = Period.between(dataNascimento, hoje).years
 
-    return Period.between(dataNascimento, hoje).years
+    return idade
 }
