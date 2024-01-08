@@ -14,7 +14,7 @@ sealed class PlanoEntity(
 
 @Entity
 @DiscriminatorValue("Avulso")
-class PlanoAvulsoEntity(tipo: String = "Plano Avulso", id:Int) : PlanoEntity(tipo, id)
+class PlanoAvulsoEntity(tipo: String = "Plano Avulso", id:Int = 0) : PlanoEntity(tipo, id)
 
 @Entity
 @DiscriminatorValue("Assinatura")
@@ -23,5 +23,5 @@ class PlanoAssinaturaEntity(
     val mensalidade: Double = 0.0,
     val jogosIncluidos: Int = 0,
     val percentualDescontoReputacao: Double = 0.0,
-    id:Int
+    id:Int = 0
 ) : PlanoEntity(tipo, id)
