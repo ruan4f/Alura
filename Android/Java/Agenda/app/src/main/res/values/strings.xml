@@ -1,5 +1,4 @@
 <resources>
     <string name="app_name">Agenda</string>
-    <string name="todo">TODO</string>
-    <string name="title_activity_formulario_aluno">FormularioAlunoActivity</string>
+    <string name="title_activity_formulario_aluno">Lista de Alunos</string>
 </resources>
