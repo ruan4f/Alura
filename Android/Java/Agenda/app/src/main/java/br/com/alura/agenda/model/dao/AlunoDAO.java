@@ -24,7 +24,7 @@ public class AlunoDAO {
 
     public void edita(Aluno aluno) {
         Aluno alunoEncontrado = buscaAlunoPeloId(aluno);
-        if (alunoEncontrado != null){
+        if (alunoEncontrado != null) {
             int posicaoDoAluno = alunos.indexOf(alunoEncontrado);
             alunos.set(posicaoDoAluno, aluno);
         }
@@ -42,5 +42,12 @@ public class AlunoDAO {
 
     public List<Aluno> todos() {
         return new ArrayList<>(alunos);
+    }
+
+    public void remove(Aluno aluno) {
+        Aluno alunoDevolvido = buscaAlunoPeloId(aluno);
+        if (alunoDevolvido != null) {
+            alunos.remove(alunoDevolvido);
+        }
     }
 }
